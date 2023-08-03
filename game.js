@@ -19,12 +19,29 @@ $(document).on("keypress" , function(event){
     nextSequence();
 
   }
+
+});
+//click
+$("h1").on("click", function() {
+  if (!started) {
+    $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
 });
 
 
 $(".btn").on("click",handler);
 
 function handler(){
+  $(".btn").on("click", function() {
+    if (!started) {
+      $("#level-title").text("Level " + level);
+      nextSequence();
+      started = true;
+    }
+  });
+
  var userChosenColour = $(this).attr("id");
 
  userClickedPattern.push(userChosenColour);
